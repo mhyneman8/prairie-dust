@@ -4,11 +4,24 @@ import './index.css';
 import App from './App';
 import * as serviceWorkerRegistration from './serviceWorkerRegistration';
 import reportWebVitals from './reportWebVitals';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+
+import AboutView from './components/about-view/about-view';
+import ContactView from './components/contact-view/contact-view';
+import Cart from './components/cart/cart';
+import Navbar from './components/navbar/navbar';
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+  <Router>
+    <Navbar />
+    <Routes>
+      <Route path='/' element={<App/>} />
+      <Route path='/about' element={<AboutView />} />
+      <Route path='/contact' elemtent={<ContactView />} />
+      <Route path='/cart' element={<Cart />} />
+    </Routes>
+    {/* <App /> */}
+  </Router>,
   document.getElementById('root')
 );
 
