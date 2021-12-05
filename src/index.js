@@ -1,26 +1,33 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+
+import "jquery";
+import "popper.js/dist/umd/popper";
+import "bootstrap/dist/js/bootstrap";
+import "bootstrap/dist/css/bootstrap.css";
 import './index.css';
+
 import App from './App';
 import * as serviceWorkerRegistration from './serviceWorkerRegistration';
 import reportWebVitals from './reportWebVitals';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes  } from 'react-router-dom';
 
-import AboutView from './components/about-view/about-view';
-import ContactView from './components/contact-view/contact-view';
-import Cart from './components/cart/cart';
-import Navbar from './components/navbar/navbar';
+// import AboutView from './components/about-view/about-view';
+// import ContactView from './components/contact-view/contact-view';
+// import Cart from './components/cart/cart';
+// import Navbar from './components/navbar/navbar';
+// import StoreView from './components/store-view/store-view';
 
 ReactDOM.render(
   <Router>
-    <Navbar />
-    <Routes>
-      <Route path='/' element={<App/>} />
-      <Route path='/about' element={<AboutView />} />
-      <Route path='/contact' elemtent={<ContactView />} />
-      <Route path='/cart' element={<Cart />} />
-    </Routes>
-    {/* <App /> */}
+    {/* <Navbar /> */}
+    <App />
+    {/* <Routes>
+      <Route path="/" element={ <App />} />
+      <Route path="/about" element={ <AboutView /> } />
+      <Route path="/contact" element={ <ContactView /> } /> 
+
+    </Routes> */}
   </Router>,
   document.getElementById('root')
 );
