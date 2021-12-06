@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import products from '../../products.json';
-import Cart from '../cart/cart';
+// import Cart from '../cart/cart';
 import Navbar from '../navbar/navbar';
+import './store-view.css';
 
 class StoreView extends Component {
     constructor(props) {
@@ -73,35 +74,11 @@ class StoreView extends Component {
     return (
         <div className="main-view">
             <Navbar cart={cart} total={total} updateTotal={this.updateTotal} removeFromCart={this.removeFromCart} />
-            <h1 className="border-bottom text-center m-1 p-1">
-                {this.state.pageTitle}
             
-                <span className="badge badge-secondary m-2">
-                    {this.state.customersCount}
-                </span>
-            </h1>
-
-            {/* <div className="container-fluid">
-                <a className="navbar-brand" href="#/">Shopping Cart</a>
-                <button className="navbar-toggler btn btn-info" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
-            
-                    Cart (
-                    { Object.keys(this.state.cart).length }
-                    )
-                
-                </button>
-                <div className="offcanvas offcanvas-end" tabIndex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
-                <div className="offcanvas-header">
-                    <h5 className="offcanvas-title" id="offcanvasNavbarLabel">Shopping Cart</h5>
-                    <button type="button" className="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-                </div>
-                <div className="offcanvas-body">
-                    
-                    <Cart cart={cart} total={total} removeFromCart={this.removeFromCart}/>
-
-                </div>
-                </div>
-            </div> */}
+            <div className="cover-photo">
+                <h3>BAR SOAP</h3>
+                <h5>Keep your hands clean and safe.</h5>
+            </div>
 
             <div className="grid">
             
@@ -123,7 +100,7 @@ class StoreView extends Component {
                             data-item-price={product.price}
                             onClick={() => { this.addToCart(product)}}
                         >  
-                            Add to Cart
+                            ADD TO CART
                         </button>
                     </div>
                 ); 
