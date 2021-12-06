@@ -5,6 +5,7 @@ import Cart from '../cart/cart';
 class StoreView extends Component {
     constructor(props) {
         super(props);
+        this.removeFromCart = this.removeFromCart.bind(this);
         this.state = { 
             pageTitle: "Main",
             customersCount: 5,
@@ -25,35 +26,41 @@ class StoreView extends Component {
             this.setState({ total: parsedTotal})
         }
     }
-   
-    onRefreshClick = () => {
-        console.log("refresh clicked");
-        this.customersCount = this.customersCount + 1;
-        this.setState({ customersCount: this.customersCount });
-    }
 
     addToCart = (product) => {
         const obj = {"image": product.image, "title": product.title, "price": product.price};
-        this.setState( ({
-            cart: ([...this.state.cart, obj ])
-        }))
+        let newCart = this.state.cart;
+        newCart.push(obj);
+        this.setState( { cart: newCart });
         const stringifiedCart = JSON.stringify(this.state.cart);
         localStorage.setItem('cart', stringifiedCart);
+
         alert(`${product.title} added to cart!`);
-        console.log(product.price);
         this.updateTotal(product.price);
     }
 
-    updateTotal = (price) => {
-        console.log(price);
-        console.log( this.state.total );
+    removeFromCart = (index) => {
+        let itemPrice = this.state.cart[index].price;
+        let newCart = [...this.state.cart];
 
+        itemPrice = -Math.abs(itemPrice);
+
+        newCart.splice(index, 1);
+        this.setState({ cart: newCart });
+
+        const stringifiedCart = JSON.stringify(newCart);
+        localStorage.setItem('cart', stringifiedCart);
+
+        this.updateTotal(itemPrice)
+        alert(`${this.state.cart[index].title} removed from cart.`);
+    }
+
+    updateTotal = (price) => {
         const newTotal = parseInt(this.state.total) + parseInt(price);
-        console.log(newTotal);
-        this.setState( ({
-            total: newTotal
-        }))
-        const stringifiedTotal = JSON.stringify(this.state.total);
+
+        this.setState({ total: newTotal })
+        
+        const stringifiedTotal = JSON.stringify(newTotal);
         localStorage.setItem('total', stringifiedTotal);
     }
 
@@ -61,34 +68,19 @@ class StoreView extends Component {
     render() {
         const cart = this.state.cart;
         const total = this.state.total;
-        console.log(cart);
+        
     return (
         <div className="main-view">
             <h1 className="border-bottom text-center m-1 p-1">
                 {this.state.pageTitle}
             
-            <span className="badge badge-secondary m-2">
-                {this.state.customersCount}
-            </span>
+                <span className="badge badge-secondary m-2">
+                    {this.state.customersCount}
+                </span>
             </h1>
 
-            {/* <button className="btn btn-info"
-                onClick={this.onRefreshClick}>
-                Cart (
-                { Object.keys(this.state.cart).length }
-                )
-                {/* Total ($
-                { this.state.total }
-                ) */}
-                
-            {/* </button> */} 
-
-
-
-
-            {/* <div className="navbar navbar-light bg-light fixed-top"> */}
             <div className="container-fluid">
-                <a className="navbar-brand" href="#">Shopping Cart</a>
+                <a className="navbar-brand" href="#/">Shopping Cart</a>
                 <button className="navbar-toggler btn btn-info" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
             
                     Cart (
@@ -103,31 +95,13 @@ class StoreView extends Component {
                 </div>
                 <div className="offcanvas-body">
                     
-                <Cart cart={cart} total={total}/>
+                    <Cart cart={cart} total={total} removeFromCart={this.removeFromCart}/>
 
                 </div>
                 </div>
             </div>
-            {/* </div> */}
-
-            {/* <h3>Your Cart = 
-                { Object.keys(this.state.cart).length}
-            </h3>
-            {(this.state.cart).length > 0 ? (
-              this.state.cart.map ((cart, index) =>  
-                <div key={index} className="cart">
-                <h4>{cart.title}</h4>
-                </div>
-            )
-            ) : (
-                <div>cart is empty</div>
-            )} */}
-
-
-            {/* <h1>${this.state.total}</h1> */}
 
             <div className="grid">
-            
             
             {products.map(product => {
                 return (
@@ -145,19 +119,14 @@ class StoreView extends Component {
                             data-item-name={product.title}
                             data-item-url="/"
                             data-item-price={product.price}
-                            // onClick={() => {alert("nice!")}}
                             onClick={() => { this.addToCart(product)}}
-                            // onClick={() => { handleClick()   }}
                         >  
                             Add to Cart
                         </button>
-                        {/* {itemCount}; */}
                     </div>
                 ); 
             })} 
             </div>
-           
-            
         </div>  
     );
     }

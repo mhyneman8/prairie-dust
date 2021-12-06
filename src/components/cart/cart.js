@@ -8,20 +8,8 @@ class CartView extends Component {
             cart: [],
         };
     }
-    
 
-    removeFromCart = (e) => {
-        // this.setState({cart: this.state.cart.filter(function(id) {
-        this.setState({
-            message: `Button ${e.currentTarget.value} clicked`
-        });
-        // console.log(e.currentTarget.value)
-            // return cart !== e.target.value
-        // })})
-        alert("remove Cart");
-    }
-
-    render() {
+    render() { 
         return (
             <div>
                 <h3>Your Cart = 
@@ -33,7 +21,7 @@ class CartView extends Component {
                         <h4>{cart.title}</h4>
                         <button
                             // value={cart.id}
-                            onClick={() => { this.removeFromCart(cart)} }
+                            onClick={() => { this.props.removeFromCart(index)} }
                             
                             >
                                 {/* {console.log(this.value)} */}
@@ -51,7 +39,7 @@ class CartView extends Component {
                 <button>
                     Checkout
                 </button>
-                <button>
+                <button type="button" data-bs-dismiss="offcanvas" aria-label="Close">
                     Continue Shopping
                 </button>
             </div>
