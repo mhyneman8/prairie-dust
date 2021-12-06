@@ -2,30 +2,28 @@ import React, { Component } from 'react';
 
 class CartView extends Component {
     constructor(props) {
-            super(props);
-            this.state = {
+        super(props);
+        this.state = {
             total: this.props.total,
-            cart: [],
+            cart: this.props.cart,
         };
     }
 
     render() { 
+        const cart = this.state.cart;
         return (
             <div>
                 <h3>Your Cart = 
-                    { Object.keys(this.props.cart).length}
+                    { Object.keys(cart).length} items
                 </h3>
                 {(this.props.cart).length > 0 ? (
                 this.props.cart.map ((cart, index) =>  
                     <div key={index} className="cart">
                         <h4>{cart.title}</h4>
                         <button
-                            // value={cart.id}
                             onClick={() => { this.props.removeFromCart(index)} }
-                            
                             >
-                                {/* {console.log(this.value)} */}
-                            Remove item {cart.id}
+                            Remove item 
                         </button>
                     </div>
                     
@@ -34,7 +32,7 @@ class CartView extends Component {
                     <div>cart is empty</div>
                 )}
 
-                <h4>Total: ${this.props.total}</h4>
+                <h4>Total: ${localStorage.getItem('total')}</h4>
                     
                 <button>
                     Checkout

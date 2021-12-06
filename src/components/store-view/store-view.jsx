@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import products from '../../products.json';
 import Cart from '../cart/cart';
+import Navbar from '../navbar/navbar';
 
 class StoreView extends Component {
     constructor(props) {
@@ -71,6 +72,7 @@ class StoreView extends Component {
         
     return (
         <div className="main-view">
+            <Navbar cart={cart} total={total} updateTotal={this.updateTotal} removeFromCart={this.removeFromCart} />
             <h1 className="border-bottom text-center m-1 p-1">
                 {this.state.pageTitle}
             
@@ -79,7 +81,7 @@ class StoreView extends Component {
                 </span>
             </h1>
 
-            <div className="container-fluid">
+            {/* <div className="container-fluid">
                 <a className="navbar-brand" href="#/">Shopping Cart</a>
                 <button className="navbar-toggler btn btn-info" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
             
@@ -99,7 +101,7 @@ class StoreView extends Component {
 
                 </div>
                 </div>
-            </div>
+            </div> */}
 
             <div className="grid">
             
