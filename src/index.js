@@ -15,14 +15,15 @@ import AboutView from './components/about-view/about-view';
 import ContactView from './components/contact-view/contact-view';
 // import Cart from './components/cart/cart';
 // import Navbar from './components/navbar/navbar';
-// import StoreView from './components/store-view/store-view';
+import StoreView from './components/store-view/store-view';
 
 ReactDOM.render(
   <Router>
     {/* <Navbar /> */}
-    <App />
+    {/* <App /> */}
+    {/* <StoreView /> */}
     <Routes>
-      <Route path="/" element={ <App />} />
+      <Route path="/" element={ <StoreView />} />
       <Route path="/about" element={ <AboutView /> } />
       <Route path="/contact" element={ <ContactView /> } /> 
 
