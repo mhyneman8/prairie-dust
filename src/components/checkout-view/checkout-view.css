@@ -1,0 +1,54 @@
+.accordion-header:hover,
+.accordion-button:hover {
+	color: white !important;
+	background-color: black !important;
+}
+
+.accordion-button:not(.collapsed) {
+	background-color: black !important;
+	color: white !important;
+}
+
+.accordion-button:focus {
+	border-color: grey !important;
+}
+
+input {
+	display: block;
+	width: 300px;
+	height: 40px;
+	margin: 10px;
+	padding-left: 5px;
+}
+
+.order {
+	display: block;
+	background-color: white;
+	color: black;
+	border: 1px solid black;
+	margin: 15px auto;
+	width: 150px;
+	height: 40px;
+	text-align: center;
+}
+
+.order:hover,
+.order:focus {
+	background-color: black;
+	color: white;
+	border: none;
+}
+
+.price {
+	display: inline-block;
+	float: right;
+}
+
+.total {
+	display: inline-block;
+	text-align: left;
+}
+
+.total-cont {
+	width: 100%;
+}
