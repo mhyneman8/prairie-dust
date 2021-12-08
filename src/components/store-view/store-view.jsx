@@ -2,7 +2,11 @@ import React, { Component } from 'react';
 import products from '../../products.json';
 // import Cart from '../cart/cart';
 import Navbar from '../navbar/navbar';
+import SoapView from '../soap-view/soap-view';
+import SoapCard from '../soap-card/soap-card';
 import './store-view.css';
+
+
 
 class StoreView extends Component {
     constructor(props) {
@@ -12,7 +16,8 @@ class StoreView extends Component {
             pageTitle: "Main",
             customersCount: 5,
             cart: [],
-            total: 0
+            total: 0,
+            selectedSoap: null
         }
     };
 
@@ -66,13 +71,19 @@ class StoreView extends Component {
         localStorage.setItem('total', stringifiedTotal);
     }
 
+    // setSelectedSoap(newSelectedSoap) {
+    //     this.setState({
+    //         selectedSoap: newSelectedSoap
+    //     });
+    // }
 
     render() {
-        const cart = this.state.cart;
-        const total = this.state.total;
+        const { cart, total, selectedSoap } = this.state;
+
+        if (selectedSoap) return <SoapView product={selectedSoap} addToCart={this.addToCart} />;
         
-    return (
-        <div className="main-view">
+        return (
+            <div className="main-view">
             <Navbar cart={cart} total={total} updateTotal={this.updateTotal} removeFromCart={this.removeFromCart} />
             
             <div className="cover-photo">
@@ -85,7 +96,7 @@ class StoreView extends Component {
             {products.map(product => {
                 return (
                     <div key={product.id} className="card">
-                        {/* <img src={product.image} alt={`Preview of ${product.title}`} /> */}
+                        <img src={product.image} alt={`Preview of ${product.title}`} />
                         <h3>{ product.title }</h3>
                         {/* <p>{ product.description }</p>
                         <p>{ product.size }</p> */}
@@ -106,8 +117,8 @@ class StoreView extends Component {
                 ); 
             })} 
             </div>
-        </div>  
-    );
+        </div>   
+        );
     }
 }
 

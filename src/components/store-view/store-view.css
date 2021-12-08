@@ -15,7 +15,7 @@
 .cover-photo {
 	background-image: url('../../img/soap.jpg');
 	background-size: cover;
-	width: 98vw;
+	width: 97vw;
 	height: 200px;
 	text-align: center;
 	padding-top: 50px;
@@ -54,6 +54,7 @@
 	font-weight: 400;
 	letter-spacing: 0.0625rem;
 	transition: 25ms;
+	margin-top: 10px;
 }
 
 .add-item:hover {
