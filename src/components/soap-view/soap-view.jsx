@@ -1,10 +1,10 @@
 import React from 'react';
-import Navbar from '../navbar/navbar';
+// import Navbar from '../navbar/navbar';
 
 class SoapView extends React.Component {
         
     render() {
-        const { product, onBackClick,  } = this.props;
+        const { product, onBackClick, addToCart } = this.props;
         return (
             <div className="soap-view">
                 {/* <Navbar /> */}
@@ -34,7 +34,7 @@ class SoapView extends React.Component {
                     data-item-name={product.title}
                     data-item-url="/"
                     data-item-price={product.price}
-                    onClick={this.props.addToCart(product)}
+                    onClick={() => addToCart(product)}
                 >
                     Add to Cart
                 </button>
