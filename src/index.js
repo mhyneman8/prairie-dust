@@ -7,6 +7,7 @@ import "bootstrap/dist/css/bootstrap.css";
 import './index.css';
 
 import App from './App';
+import CartState from './context/cart/CartState';
 import * as serviceWorkerRegistration from './serviceWorkerRegistration';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter as Router, Route, Routes  } from 'react-router-dom';
@@ -15,22 +16,27 @@ import AboutView from './components/about-view/about-view';
 import ContactView from './components/contact-view/contact-view';
 import CheckoutView from './components/checkout-view/checkout-view';
 // import Cart from './components/cart/cart';
-// import Navbar from './components/navbar/navbar';
+import Navbar from './components/navbar/navbar';
 import StoreView from './components/store-view/store-view';
 
 ReactDOM.render(
   // <React.StrictMode>
   <Router>
-    {/* <Navbar /> */}
-    {/* <App /> */}
-    {/* <StoreView /> */}
-    <Routes>
-      <Route path="/" element={ <StoreView />} />
-      <Route path="/about" element={ <AboutView /> } />
-      <Route path="/contact" element={ <ContactView /> } /> 
-      <Route path="/checkout" element={ <CheckoutView />} />
+    <CartState>
+      <Navbar />
+      {/* <StoreView /> */}
+    
+      {/* <Navbar /> */}
+      {/* <App /> */}
+      {/* <StoreView /> */}
+      <Routes>
+        <Route path="/" element={ <StoreView />} />
+        <Route path="/about" element={ <AboutView /> } />
+        <Route path="/contact" element={ <ContactView /> } /> 
+        <Route path="/checkout" element={ <CheckoutView />} />
 
-    </Routes>
+      </Routes>
+    </CartState>
   </Router>,
   /* </React.StrictMode>, */
   document.getElementById('root')
