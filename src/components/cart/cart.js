@@ -1,34 +1,40 @@
-import React, { Component } from 'react';
+// import React, { Component } from 'react';
+import React, { useContext } from 'react';
 import './cart.css';
 import { Link } from 'react-router-dom';
+import CartContext from '../../context/cart/CartContext';
 
-class CartView extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            total: this.props.total,
-            cart: this.props.cart,
-        };
-    }
+
+const CartView = () => {
+    const { cartItems, removeItem, total } = useContext(CartContext);
+// }
+// class CartView extends Component {
+//     constructor(props) {
+//         super(props);
+//         this.state = {
+//             total: this.props.total,
+//             cart: this.props.cart,
+//         };
+//     }
 
     // clearCart = () => {
     //     localStorage.clear();
     // }
 
-    render() { 
-        const cart = this.state.cart;
+    // render() { 
+    //     const cart = this.state.cart;
         return (
             <div>
-                {/* <h3>Added to your cart (
-                    { Object.keys(cart).length} items )
-                </h3> */}
-                {(this.props.cart).length > 0 ? (
-                this.props.cart.map ((cart, index) =>  
-                    <div key={index} className="cart">
-                        <h4>{cart.title}</h4>
+                <h3>Added to your cart (
+                    { cartItems.length} items )
+                </h3>
+                {cartItems.length > 0 ? (
+                cartItems.map ((item) =>  
+                    <div key={item.id} className="cart">
+                        <h4>{item.title}</h4>
                         <button
                             className="remove"
-                            onClick={() => { this.props.removeFromCart(index)} }
+                            onClick={() => { removeItem(item.id)} }
                             >
                             Remove item 
                         </button>
@@ -40,13 +46,14 @@ class CartView extends Component {
                 )}
 
                 <h4 className="total">Cart Total 
-                    ({ Object.keys(cart).length} items)
+                    ({ cartItems.length} items)
                     <span className="right">
-                        ${localStorage.getItem('total')}
+                        ${cartItems.reduce((amount, item) => Number(item.price) + Number(amount), 0)}
+                        {/* ${localStorage.getItem('total')} */}
                     </span>
                 </h4>
 
-                {Number(this.props.total) < 30 ? ( 
+                {Number(total) < 30 ? ( 
                     <div  className="">
                         ${30 - localStorage.getItem('total')} away from free shipping!
                     </div>
@@ -71,6 +78,6 @@ class CartView extends Component {
             </div>
         );
     }
-}
+// }
 
 export default CartView;

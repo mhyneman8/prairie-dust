@@ -8,7 +8,7 @@
             "Coconut Oil", "Olive Oil", "Soybean Oil", "Shea Butter", "Lavender & Spearmint Essential Oils"
         ],
         "price": "5.00",
-        "image": "./img/lavendar.jpg"
+        "image": "img/lavendar.jpg"
     },
     {
         "title": "Granny's Apron",

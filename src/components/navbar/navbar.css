@@ -17,3 +17,11 @@
 .cartCount {
 	margin-left: 3px;
 }
+
+.navbar {
+	position: fixed;
+	top: 0;
+	width: 100%;
+	background-color: white;
+	box-shadow: 0px 7px 12px 0px rgba(0, 0, 0, 0.3);
+}
