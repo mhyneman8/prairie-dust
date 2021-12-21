@@ -1,20 +1,28 @@
-import React from 'react';
-import './App.css';
-import StoreView from './components/store-view/store-view';
-import Navbar from './components/navbar/navbar';
-// import AboutView from './components/about-view/about-view';
-// import { Router, Route } from 'react-router-dom';
+// import React, { Component } from 'react';
+// import products from '../../products.json';
+// import Cart from '../cart/cart';
+// import Navbar from './components/navbar/navbar';
+// import SoapView from '../soap-view/soap-view';
+// import SoapCard from '../soap-card/soap-card';
+// import navMenu from '../../img/navMenu.png';
+// import cartIcon from '../../img/cartIcon.png';
+// import './store-view.css';
+// import { Link, Outlet } from 'react-router-dom';
+// import { CartProvider } from './cartContext';
 // import StoreView from './components/store-view/store-view';
 
-function App() {
-  // const [itemCount, setItemCount] = useState(0);
-    return (
-      <React.Fragment>
-        <Navbar />
-        <StoreView />
-      </React.Fragment>
-        
-    );
-}
+// class App extends React.Component {
+//     render() {
 
-export default App;
+// const App = () => {
+//         return (
+            // <CartProvider>
+            //     <Navbar />
+            //     <StoreView />
+            // </CartProvider>
+//         )
+// }
+//     }
+// }      
+
+// export default App;
