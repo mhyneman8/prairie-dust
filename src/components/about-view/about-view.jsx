@@ -1,11 +1,12 @@
 import React from 'react';
-import Navbar from '../navbar/navbar';
+import './about-view.css';
+// import Navbar from '../navbar/navbar';
 // import IngredientsView from '../ingredients-view/ingredients-view';
 
 function AboutView() {
         return (
             <div className="about-view">
-                <Navbar />
+                {/* <Navbar /> */}
                 <h3>Why do you want to use our handmade soap? Great question, thanks for asking!</h3>
                 <p>
                     Our recipes are free of chemicals and preservatives. By using organic, environmentally friendly ingredients, you have a product that is good for your skin. Coconut oil is the most important oil used in our soap making. Along with olive oil and various other oils, and shea butter, you have a product that reduces dry skin, is antimicrobial, and won't clog pores. These oils are high in vitamin A, E, and C, which can relieve skin conditions such as acne, psoriasis, and eczema. The fragrances are plant based essential oils and will leave a fresh aroma on your skin.

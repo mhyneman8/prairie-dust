@@ -1,10 +1,11 @@
 import React from 'react';
-import Navbar from '../navbar/navbar';
+import './contact-view.css';
+// import Navbar from '../navbar/navbar';
 
 function ContactView() {
         return (
             <div className="contact-view">
-                <Navbar />
+                {/* <Navbar /> */}
                 Contact Form
             </div>  
         );
