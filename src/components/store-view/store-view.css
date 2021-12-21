@@ -13,10 +13,11 @@
 }
 
 .cover-photo {
-	background-image: url('../../img/soap.jpg');
+	/* background-image: url('../../img/soap.jpg'); */
 	background-size: cover;
 	width: 97vw;
 	height: 200px;
+	margin-top: 60px;
 	text-align: center;
 	padding-top: 50px;
 	color: white;
@@ -28,7 +29,7 @@
 	margin: 10px auto;
 }
 
-.card {
+/* .card {
 	width: 200px;
 	height: 300px;
 	margin: 10px;
@@ -36,14 +37,14 @@
 	text-align: center;
 	display: inline-block;
 	border: 1px solid white;
-}
+} */
 
-.card:hover {
+/* .card:hover {
 	border: 1px solid grey;
 	box-shadow: 2px 2px 5px black;
-}
+} */
 
-.add-item {
+/* .add-item {
 	width: 80%;
 	height: 2.5rem;
 	margin: 0 auto;
@@ -61,4 +62,4 @@
 	background-color: white;
 	color: black;
 	border: 1px solid black;
-}
+} */
